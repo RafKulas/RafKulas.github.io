@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title> Pokemon Type Quiz </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="poke.js"></script> 
+
+</head>
+<body>
+
+    <input id="firstTime" type="button" onclick="start()" value="Start!">
+
+    <div id="afterStart" style="display: none;">
+        <p id="Question"></p>
+        <br/>
+        <form id="Answer">
+            <input type="radio" name="multiplier" value="2.0"> 2.0<br>
+            <input type="radio" name="multiplier" value="1.0" checked="checked"> 1.0<br>
+            <input type="radio" name="multiplier" value="0.5"> 0.5<br>
+            <input type="radio" name="multiplier" value="0.0"> 0.0<br>
+        </form>
+        <input type="submit" name="continue" value="Dalej" onclick="check()">
+    </div>
+
+</body></html>
