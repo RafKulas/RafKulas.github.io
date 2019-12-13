@@ -28,7 +28,7 @@ function start() {
     offensiveType = Math.round(Math.random()*17);
     defensiveType = Math.round(Math.random()*17);
 
-    $("#Question").text("Pytanie "+tries+"/"+questionsNO+"\nJaki mnoznik ma atak typu "+type[offensiveType]+ " w pokemon'a typu "+type[defensiveType]+"?");
+    $("#Question").text("Pytanie "+(tries+1)+"/"+questionsNO+"\nJaki mnoznik ma atak typu "+type[offensiveType]+ " w pokemon'a typu "+type[defensiveType]+"?");
     $("#afterStart").css("display", "block");
     $("#firstTime").css("display", "none");
 }
