@@ -37,6 +37,7 @@ input[type="button"], input[type="submit"] {
 }
 
 input[type=radio], input[type=checkbox] {
+    border: 0px;
     width: 3vw;
     height: 3vw;
 }
