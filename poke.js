@@ -40,9 +40,9 @@ function check() {
     }
     tries ++;
     if(tries == questionsNO) {
+        alert("Twój wynik to: " + (score) + "/" + (questionsNO));
         score = 0;
         tries = 0;
-        alert("Twój wynik to: " + (score) + "/" + (questionsNO));
     }
     start();
     $("#default").prop("checked", true);
