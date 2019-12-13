@@ -35,6 +35,11 @@ input[type="button"], input[type="submit"] {
     font-size: 5vw;
 
 }
+
+input[type=radio], input[type=checkbox] {
+    width: 3vw;
+    height: 3vw;
+}
 /*
 border-radius: 12px;
 .lmenu {
