@@ -21,16 +21,12 @@ function init() {
                 multipliers[i][j] = Number(json.TypeStrength[i][j]);
             }
         }
-        console.log(type);
-        console.log(multipliers);
         });
    }
 
 function start() {
     offensiveType = Math.round(Math.random()*17);
-    console.log(type[offensiveType]);
     defensiveType = Math.round(Math.random()*17);
-    console.log(type[defensiveType]);
 
     $("#Question").text("Jaki mnoznik ma atak typu "+type[offensiveType]+ " w pokemon'a typu "+type[defensiveType]+"?");
     $("#afterStart").css("display", "block");
@@ -44,7 +40,8 @@ function check() {
     }
     tries ++;
     if(tries == questionsNO) {
-        tries == 0;
+        score = 0;
+        tries = 0;
         alert("Twój wynik to: " + (score) + "/" + (questionsNO));
     }
     start();

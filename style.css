@@ -28,32 +28,9 @@ body {
 
 
 /*
-
-    border-radius: 12px;
-
-
+border-radius: 12px;
 .lmenu {
     list-style-type: none;
     float: left;
 }
-
-    .lmenu:hover {
-        background: #00E591;
-    }
-
-    .lmenu a {
-        display: block;
-        color: white;
-        padding: 7px;
-    }
-
-    .lmenu ul {
-        display: none;
-        background: #008655;
-    }
-
-    .lmenu:hover ul {
-        display: block;
-    }
-
 }*/
