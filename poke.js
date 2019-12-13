@@ -45,6 +45,7 @@ function check() {
         alert("Twój wynik to: " + (score) + "/" + (questionsNO));
     }
     start();
+    $("#default").prop("checked", true);
 }
 
 function main() {
