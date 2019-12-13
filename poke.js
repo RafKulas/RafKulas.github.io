@@ -5,7 +5,7 @@ var defensiveType;
 
 var tries = 0;
 var score = 0;
-var questionsNO = 5;
+var questionsNO = 10;
 
 var multipliers = new Array(18);
 for(i=0; i<18;i++) {
