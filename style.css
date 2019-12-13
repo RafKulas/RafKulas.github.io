@@ -37,9 +37,9 @@ input[type="button"], input[type="submit"] {
 }
 
 input[type=radio], input[type=checkbox] {
-    -ms-transform: scale(1.5); /* IE 9 */
-    -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
-    transform: scale(3);
+    height:35px;
+    width:35px;
+    vertical-align: middle;
 }
 /*
 border-radius: 12px;
