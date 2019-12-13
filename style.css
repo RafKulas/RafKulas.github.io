@@ -6,13 +6,17 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    font-size: 6vw;
 }
 
 #firstTime {
+    border-radius: 1%;
+    padding: 5% 0%;
     display: block;
     margin: 20% auto;
     text-align: center;
-    width: 144px;
+    width: 40%;
+    height: 20%;
 }
 
 #afterStart {
@@ -27,7 +31,11 @@ body {
 
 }
 
+input[type="button"], input[type="submit"] {
+    padding: 2vw 5vw;
+    font-size: 5vw;
 
+}
 /*
 border-radius: 12px;
 .lmenu {
