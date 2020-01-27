@@ -5,7 +5,7 @@
 
 <title> Quiz </title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!--<script src="poke.js"></script>-->
+<script src="customQuiz.js"></script>
 <link href="styleMain.css" rel="stylesheet">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -17,11 +17,9 @@
         <h2>Choose your quiz</h2>
         <a href="pokemon.html" class="ui-button ui-widget ui-corner-all">Pokemon</a>
         <br/>
-        <form id="customQuiz">
-            <button class="ui-button ui-widget ui-corner-all">Custom Quiz</button>
-            <br/>
-            <input type="url" id="sourceURL" placeholder="Give URL to JSON file"/>
-        </form>
+        <input type="url" id="sourceURL" placeholder="Give URL to JSON file"/>
+        <br/>
+        <button id="customQuiz" class="ui-button ui-widget ui-corner-all" onclick="showInput()">Custom Quiz</button>
     </div>
 
 </body></html>
