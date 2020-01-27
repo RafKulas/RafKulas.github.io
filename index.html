@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title> Pokemon Type Quiz </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title> Quiz </title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="poke.js"></script>
-<link href="style.css" rel="stylesheet">
+<!--<script src="poke.js"></script>-->
+<link href="styleMain.css" rel="stylesheet">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 </head>
 <body>
-
-    <input id="firstTime" type="button" onclick="start()" value="Start!">
-
-    <div id="afterStart" style="display: none;">
-        <p id="Question"></p>
+    <div id="mainPage" >
+        <h2>Choose your quiz</h2>
+        <a href="pokemon.html" class="ui-button ui-widget ui-corner-all">Pokemon</a>
         <br/>
-        <form id="Answer">
-            <input type="radio" name="multiplier" value="2.0"> 2.0<br>
-            <input type="radio" name="multiplier" value="1.0" id="default" checked="checked"> 1.0<br>
-            <input type="radio" name="multiplier" value="0.5"> 0.5<br>
-            <input type="radio" name="multiplier" value="0.0"> 0.0<br>
-        </form>
-        <input type="button" name="continue" value="Dalej" onclick="check()">
+        <button class="ui-button ui-widget ui-corner-all">Custom Quiz</button>
     </div>
 
 </body></html>

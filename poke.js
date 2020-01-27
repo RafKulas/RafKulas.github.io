@@ -21,12 +21,20 @@ function init() {
                 multipliers[i][j] = Number(json.TypeStrength[i][j]);
             }
         }
-        });
+        })
+        .done(function() {
+            $("#firstTime").css("visibility", "visible");
+            $("#firstTime").attr("onclick","start()");
+            $("#firstTime").attr("value","Start!");
+
+          });
    }
 
 function start() {
     offensiveType = Math.round(Math.random()*17);
     defensiveType = Math.round(Math.random()*17);
+
+    console.log(type);
 
     $("#Question").html("Pytanie "+(tries+1)+"/"+questionsNO+"<br>Jaki mnoznik ma atak typu "+type[offensiveType]+ " w pokemon'a typu "+type[defensiveType]+"?");
     $("#afterStart").css("display", "block");
