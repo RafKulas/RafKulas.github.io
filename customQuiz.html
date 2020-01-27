@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title> Custom Quiz </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="customQuiz.js"></script>
+<link href="styleMain.css" rel="stylesheet">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+    <div id="pMenu">
+        <h2>Your Custom Quiz</h2>
+        <div id="points" >
+            <div id="good">
+                <div>Good answers:</div>
+                <div id="points">5</div>
+            </div>
+            <div id="every">
+                <div>Answers given:</div>
+                <div id="questionno">10</div>
+            </div>
+            <div id="perc">
+                <div>Score:</div>
+                <div id="score">50%</div>
+            </div>
+        </div>
+    </div>
+    <div id="question">
+        <br>
+        <div id="content">
+
+        </div>
+        <br>
+        <button id="chene" class="ui-button ui-widget ui-corner-all" onclick="start()">Start</button>
+    </div>
+</body></html>

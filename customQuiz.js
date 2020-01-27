@@ -1,23 +1,46 @@
 getJSON = false;
 
-function showInput() {
-    $("#sourceURL").css("display", "block");
-    $("#customQuiz").text("Start!");
+function nextQ() {
+
 }
 
-// var type = new Array(18);
+function start() {
+    $("#chene").text("Check");
+    questionsJSON = JSON.parse(localStorage.getItem("urlJSON"));
+    console.log(questionsJSON.questionNO + " " + typeof(questionsJSON.questionNO));
+    randomNumber = Math.round(Math.random()*(questionsJSON.questionNO-1));
+    console.log(randomNumber + " " + typeof(randomNumber));
+    console.log(questionsJSON.questions[randomNumber].question);
+    concontent = "<p>" + questionsJSON.questions[randomNumber].question + "</p><form>"
+    noanswers = questionsJSON.answersNO;
+    charAns = 'a';
+    for(i=0; i<noanswers; i++) {
+        concontent += '<input type="checkbox" id="ans'+i+'" value="'+i+'">'+ questionsJSON.questions[randomNumber].answers[i] +'</br>'
+        console.log(concontent);
+    }
+    $("#content").html(concontent)
+}
 
-// var offensiveType;
-// var defensiveType;
+function showInput() {
+    if(getJSON == false) {
+        $("#sourceURL").css("display", "block");
+        $("#customQuiz").text("Start!");
+        getJSON = true;
+    }
+    else {
+        url = $("#sourceURL").val();
+        localStorage.setItem("jsonURL", url);
+        var xhReq = new XMLHttpRequest();
+        xhReq.open("GET", url, false);
+        xhReq.send(null);
+        var jsonObject = JSON.parse(xhReq.responseText);
+        localStorage.setItem("urlJSON", JSON.stringify(jsonObject))
+        window.location.href = "customQuiz.html";
+    }
+}
 
-// var tries = 0;
-// var score = 0;
-// var questionsNO = 10;
 
-// var multipliers = new Array(18);
-// for(i=0; i<18;i++) {
-//     multipliers[i] = new Array(18);
-// }
+
 
 // function init() {
 //     $.getJSON( "https://api.myjson.com/bins/ic400", function( json ) {
@@ -36,17 +59,6 @@ function showInput() {
 
 //           });
 //    }
-
-// function start() {
-//     offensiveType = Math.round(Math.random()*17);
-//     defensiveType = Math.round(Math.random()*17);
-
-//     console.log(type);
-
-//     $("#Question").html("Pytanie "+(tries+1)+"/"+questionsNO+"<br>Jaki mnoznik ma atak typu "+type[offensiveType]+ " w pokemon'a typu "+type[defensiveType]+"?");
-//     $("#afterStart").css("display", "block");
-//     $("#firstTime").css("display", "none");
-// }
 
 // function check() {
 //     var attack = $("input[name=multiplier]:checked", "#Answer").val();
