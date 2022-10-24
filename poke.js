@@ -1,4 +1,23 @@
-var type = new Array(18);
+var type = [
+  "normal",
+  "fire",
+  "water",
+  "electric",
+  "grass",
+  "ice",
+  "fighting",
+  "poison",
+  "ground",
+  "flying",
+  "psychic",
+  "bug",
+  "rock",
+  "ghost",
+  "dragon",
+  "dark",
+  "steel",
+  "fairy",
+];
 
 var offensiveType;
 var defensiveType;
@@ -7,57 +26,71 @@ var tries = 0;
 var score = 0;
 var questionsNO = 10;
 
-var multipliers = new Array(18);
-for(i=0; i<18;i++) {
-    multipliers[i] = new Array(18);
-}
+var multipliers = [
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 1, 1, 0.5, 1],
+  [1, 0.5, 0.5, 1, 2, 2, 1, 1, 1, 1, 1, 2, 0.5, 1, 0.5, 1, 2, 1],
+  [1, 2, 0.5, 1, 0.5, 1, 1, 1, 2, 1, 1, 1, 2, 1, 0.5, 1, 1, 1],
+  [1, 1, 2, 0.5, 0.5, 1, 1, 1, 0, 2, 1, 1, 1, 1, 0.5, 1, 1, 1],
+  [1, 0.5, 2, 1, 0.5, 1, 1, 0.5, 2, 0.5, 1, 0.5, 2, 1, 0.5, 1, 0.5, 1],
+  [1, 0.5, 0.5, 1, 2, 0.5, 1, 1, 2, 2, 1, 1, 1, 1, 2, 1, 0.5, 1],
+  [2, 1, 1, 1, 1, 2, 1, 0.5, 1, 0.5, 0.5, 0.5, 2, 0, 1, 2, 2, 0.5],
+  [1, 1, 1, 1, 2, 1, 1, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 1, 1, 0, 2],
+  [1, 2, 1, 2, 0.5, 1, 1, 2, 1, 0, 1, 0.5, 2, 1, 1, 1, 2, 1],
+  [1, 1, 1, 0.5, 2, 1, 2, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 0.5, 1],
+  [1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 0.5, 1, 1, 1, 1, 0, 0.5, 1],
+  [1, 0.5, 1, 1, 2, 1, 0.5, 0.5, 1, 0.5, 2, 1, 1, 0.5, 1, 2, 0.5, 0.5],
+  [1, 2, 1, 1, 1, 2, 0.5, 1, 0.5, 2, 1, 2, 1, 1, 1, 1, 0.5, 1],
+  [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 0.5, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 0.5, 0],
+  [1, 1, 1, 1, 1, 1, 0.5, 1, 1, 1, 2, 1, 1, 2, 1, 0.5, 1, 0.5],
+  [1, 0.5, 0.5, 0.5, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0.5, 2],
+  [1, 0.5, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 1, 1, 1, 2, 2, 0.5, 1],
+];
 
 function init() {
-    $.getJSON( "https://api.myjson.com/bins/ic400", function( json ) {
-        pokemonData = json;
-        for(i=0; i<18; ++i) {
-            type[i] = String(json.types[i]);
-            for(j=0; j<18; ++j) {
-                multipliers[i][j] = Number(json.TypeStrength[i][j]);
-            }
-        }
-        })
-        .done(function() {
-            $("#firstTime").css("visibility", "visible");
-            $("#firstTime").attr("onclick","start()");
-            $("#firstTime").attr("value","Start!");
-
-          });
-   }
+  $("#firstTime").css("visibility", "visible");
+  $("#firstTime").attr("onclick", "start()");
+  $("#firstTime").attr("value", "Start!");
+}
 
 function start() {
-    offensiveType = Math.round(Math.random()*17);
-    defensiveType = Math.round(Math.random()*17);
+  offensiveType = Math.round(Math.random() * 17);
+  defensiveType = Math.round(Math.random() * 17);
 
-    console.log(type);
+  console.log(type);
 
-    $("#Question").html("Pytanie "+(tries+1)+"/"+questionsNO+"<br>Jaki mnoznik ma atak typu "+type[offensiveType]+ " w pokemon'a typu "+type[defensiveType]+"?");
-    $("#afterStart").css("display", "block");
-    $("#firstTime").css("display", "none");
+  $("#Question").html(
+    "Pytanie " +
+      (tries + 1) +
+      "/" +
+      questionsNO +
+      "<br>Jaki mnoznik ma atak typu " +
+      type[offensiveType] +
+      " w pokemon'a typu " +
+      type[defensiveType] +
+      "?"
+  );
+  $("#afterStart").css("display", "block");
+  $("#firstTime").css("display", "none");
 }
 
 function check() {
-    var attack = $("input[name=multiplier]:checked", "#Answer").val();
-    if(multipliers[offensiveType][defensiveType]==attack) {
-        score++;
-    }
-    tries ++;
-    if(tries == questionsNO) {
-        alert("Twój wynik to: " + (score) + "/" + (questionsNO));
-        score = 0;
-        tries = 0;
-    }
-    start();
-    $("#default").prop("checked", true);
+  var attack = $("input[name=multiplier]:checked", "#Answer").val();
+  if (multipliers[offensiveType][defensiveType] == attack) {
+    score++;
+  }
+  tries++;
+  if (tries == questionsNO) {
+    alert("Twój wynik to: " + score + "/" + questionsNO);
+    score = 0;
+    tries = 0;
+  }
+  start();
+  $("#default").prop("checked", true);
 }
 
 function main() {
-    init();
+  init();
 }
 
-window.onload = main
+window.onload = main;
